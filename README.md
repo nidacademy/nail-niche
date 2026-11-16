@@ -20,6 +20,7 @@
   <a href="#-download">Download</a> ·
   <a href="#-home-designs">Home designs</a> ·
   <a href="#-features">Features</a> ·
+  <a href="#-need-hosting">Hosting</a> ·
   <a href="#-install">Install</a> ·
   <a href="#-updates">Updates</a> ·
   <a href="#-follow-nid-academy">Follow</a>
@@ -73,6 +74,33 @@ Pick one in **Appearance → Customize → Home design**. The preview changes as
 | ⚡ **Fast** | One stylesheet, one small script, one self-hosted font. No page builder, no jQuery. |
 | 🪄 **One-click demo** | Appearance → Demo content fills a new site with posts, photos, pages and menus, and removes them again with one click. |
 | 🔄 **Updates itself** | New releases show under Dashboard → Updates. |
+
+## 🌐 Need hosting?
+
+Nail Niche runs on any WordPress site. No site yet? We use **Hostinger** for our own sites.
+
+<a href="https://www.hostinger.com/nidacademy">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/images/hosting-dark.webp">
+    <source media="(prefers-color-scheme: light)" srcset=".github/images/hosting-light.webp">
+    <img src=".github/images/hosting-light.webp" alt="Your nail blog in 3 steps: choose a Hostinger plan, install WordPress, upload Nail Niche" width="100%">
+  </picture>
+</a>
+
+<details>
+<summary><b>Show the steps</b> (about 10 minutes)</summary>
+<br>
+
+1. **Choose a plan.** Open [Hostinger](https://www.hostinger.com/nidacademy) and pick a **WordPress hosting** plan. *Premium* is enough to start a blog.
+2. **Create your account and pay.** 12 or 24 months gives the lowest monthly price.
+3. **Claim your domain**, for example `yournailblog.com`, or connect one you already own.
+4. **Install WordPress.** When asked what you want to build, choose **WordPress** (a blog) and skip the suggested theme. Already past this step? In hPanel go to **Websites → Add website → WordPress**.
+5. **Log in** at `yourdomain.com/wp-admin` once the domain and SSL are ready (a few minutes).
+6. **Install Nail Niche** with the steps below.
+
+</details>
+
+<sub>Affiliate link: Nid Academy earns a small commission if you buy through it, at no extra cost to you.</sub>
 
 ## 🚀 Install
 

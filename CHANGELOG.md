@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.5.1
+* Fix: Color shop swatches show in a row again (on phones they scroll sideways).
+
 ## 3.5.0
 * Renamed to Nail Niche and made free for anyone: no site-specific text left; your own text goes in the Customizer.
 * Theme options: accent colour, guides category and heading, colors category.

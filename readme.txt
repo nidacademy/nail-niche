@@ -6,7 +6,7 @@ Author URI: https://www.nidacademy.org/
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.5.0
+Stable tag: 3.5.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-images, translation-ready
@@ -51,6 +51,9 @@ No. It works with the normal WordPress editor.
 Use an ad plugin such as Ad Inserter. For an ad in the sidebar, you can also add a Custom HTML block to a sidebar in Appearance → Widgets.
 
 == Changelog ==
+
+= 3.5.1 =
+* Fix: Color shop swatches show in a row again (on phones they scroll sideways).
 
 = 3.5.0 =
 * Renamed to Nail Niche and made free for anyone: no site-specific text left; your own text goes in the Customizer.

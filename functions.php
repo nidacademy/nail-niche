@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once get_template_directory() . '/inc/updater.php';
+require_once get_template_directory() . '/inc/demo.php';
 
 /* ---------- Setup ---------- */
 

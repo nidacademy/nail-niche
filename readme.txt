@@ -6,7 +6,7 @@ Author URI: https://www.nidacademy.org/
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.5.1
+Stable tag: 3.6.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-images, translation-ready
@@ -28,6 +28,7 @@ Nail Niche is a simple, free blog theme built around large photos. It is made fo
 * No built-in ad spaces: use an ad plugin such as Ad Inserter.
 * Affiliate links are marked the way Google asks (rel="sponsored nofollow") and open in a new tab. A link counts as affiliate when it points to a known affiliate network or has the class "affiliate".
 * Staging and local copies of a site (staging addresses, .local, localhost, or a WordPress environment type of staging/development/local) are kept out of search engines.
+* One-click demo content (Appearance → Demo content): posts with photos, guides, pages, menus and settings, so a new site looks like the preview. Remove it again with one click.
 * Updates itself from GitHub releases: new versions show under Dashboard → Updates.
 * One self-hosted font (Libre Franklin), no outside requests for fonts.
 * Works on phones: the sidebar moves under the content on small screens.
@@ -36,9 +37,10 @@ Nail Niche is a simple, free blog theme built around large photos. It is made fo
 
 1. In WordPress, go to Appearance → Themes → Add New → Upload Theme.
 2. Choose nail-niche.zip and click Install Now, then Activate.
-3. Set your logo, the About box and Theme options in Appearance → Customize.
-4. Add your menus in Appearance → Menus.
-5. Optional: add blocks to the sidebars in Appearance → Widgets.
+3. Optional: go to Appearance → Demo content and click Import demo content to make the site look like the preview.
+4. Set your logo, the About box and Theme options in Appearance → Customize.
+5. Add your menus in Appearance → Menus.
+6. Optional: add blocks to the sidebars in Appearance → Widgets.
 
 == Frequently Asked Questions ==
 
@@ -51,6 +53,9 @@ No. It works with the normal WordPress editor.
 Use an ad plugin such as Ad Inserter. For an ad in the sidebar, you can also add a Custom HTML block to a sidebar in Appearance → Widgets.
 
 == Changelog ==
+
+= 3.6.0 =
+* Demo content: one click adds about 20 posts with AI photos, 5 salon guides, pages, menus, a sidebar block and the theme settings. One click removes it and puts your earlier settings back.
 
 = 3.5.1 =
 * Fix: Color shop swatches show in a row again (on phones they scroll sideways).

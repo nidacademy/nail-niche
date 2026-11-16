@@ -71,18 +71,20 @@ Pick one in **Appearance → Customize → Home design**. The preview changes as
 | 💸 **Affiliate-ready** | Affiliate links get `rel="sponsored nofollow"` automatically, plus a short disclosure on the post. |
 | 🔍 **Search-friendly** | One main heading per page, share tags until an SEO plugin takes over, and staging copies kept out of Google. |
 | ⚡ **Fast** | One stylesheet, one small script, one self-hosted font. No page builder, no jQuery. |
+| 🪄 **One-click demo** | Appearance → Demo content fills a new site with posts, photos, pages and menus, and removes them again with one click. |
 | 🔄 **Updates itself** | New releases show under Dashboard → Updates. |
 
 ## 🚀 Install
 
 1. [Download `nail-niche.zip`](https://github.com/NIDACADEMY/nail-niche/releases/latest/download/nail-niche.zip).
 2. In WordPress, go to **Appearance → Themes → Add New → Upload Theme**, choose the zip, then **Install Now** and **Activate**.
-3. Go to **Appearance → Customize**:
+3. **Want it to look like the screenshots?** Go to **Appearance → Demo content** and click **Import demo content**. It adds about 20 posts with photos, guides, pages, menus and settings, and you can remove it again with one click.
+4. Go to **Appearance → Customize**:
    - **Site Identity**: your logo.
    - **Home design**: pick a home page.
    - **Theme options**: accent colour and categories.
    - **About box**: your photo and a few words about you.
-4. Add your menus in **Appearance → Menus** (Main menu and Footer menu).
+5. Add your menus in **Appearance → Menus** (Main menu and Footer menu), if you didn't import the demo.
 
 **Requirements:** WordPress 6.4+ and PHP 7.4+.
 

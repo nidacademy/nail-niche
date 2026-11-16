@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.6.1
+* The demo content now ships inside the theme: Import works straight away, even without an internet connection.
+
 ## 3.6.0
 * Demo content: one click adds about 20 posts with AI photos, 5 salon guides, pages, menus, a sidebar block and the theme settings. One click removes it and puts your earlier settings back.
 

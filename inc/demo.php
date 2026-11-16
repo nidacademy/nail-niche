@@ -4,9 +4,10 @@
  *
  * One click makes a fresh site look like the theme preview: categories, posts with
  * photos, pages, menus, sidebar widgets and Customizer settings. The pack (demo.json
- * plus photos) is downloaded from the theme's GitHub release "demo-1", so the theme
- * itself stays small. Everything created is recorded, so "Remove demo content" deletes
- * only those items and puts the earlier settings back.
+ * plus photos) ships inside the theme, in demo/, so it works offline too. (If that folder
+ * is missing, it is downloaded from the theme's GitHub release "demo-1" instead.)
+ * Everything created is recorded, so "Remove demo content" deletes only those items
+ * and puts the earlier settings back.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,8 +29,16 @@ function nn_demo_save_record( array $r ) {
 	update_option( 'nn_demo_import', $r, false );
 }
 
-/** The working folder for the unpacked pack. */
+/** True when the pack ships inside the theme (demo/demo.json). */
+function nn_demo_bundled() {
+	return file_exists( get_template_directory() . '/demo/demo.json' );
+}
+
+/** The pack folder: the theme's demo/ folder, or a downloaded copy in uploads. */
 function nn_demo_dir() {
+	if ( nn_demo_bundled() ) {
+		return get_template_directory() . '/demo';
+	}
 	$up = wp_upload_dir( null, false );
 	return trailingslashit( $up['basedir'] ) . 'nn-demo-pack';
 }
@@ -60,7 +69,7 @@ function nn_demo_page() {
 				<li><?php esc_html_e( 'Main menu and footer menu', 'nail-niche' ); ?></li>
 				<li><?php esc_html_e( 'A sidebar block and the theme settings (About box, guides, colors)', 'nail-niche' ); ?></li>
 			</ul>
-			<p class="description"><?php esc_html_e( 'Your existing posts, pages and media are not changed. The photos (about 5 MB) are downloaded from the theme\'s GitHub page. The demo photos are AI-generated and free to keep.', 'nail-niche' ); ?></p>
+			<p class="description"><?php esc_html_e( 'Your existing posts, pages and media are not changed. Everything is included in the theme, so it works without an internet connection. The demo photos are AI-generated and free to keep.', 'nail-niche' ); ?></p>
 
 			<?php if ( $has ) : ?>
 				<p class="nn-demo__done"><span class="dashicons dashicons-yes-alt" aria-hidden="true"></span>
@@ -211,21 +220,23 @@ function nn_demo_step_download() {
 	if ( nn_demo_record() && ! empty( nn_demo_record()['done'] ) ) {
 		return new WP_Error( 'nn_demo', __( 'Demo content is already installed.', 'nail-niche' ) );
 	}
-	$tmp = download_url( nn_demo_pack_url(), 120 );
-	if ( is_wp_error( $tmp ) ) {
-		/* translators: %s: error */
-		return new WP_Error( 'nn_demo', sprintf( __( 'Could not download the demo pack: %s', 'nail-niche' ), $tmp->get_error_message() ) );
-	}
-	global $wp_filesystem;
-	WP_Filesystem();
-	$dir = nn_demo_dir();
-	if ( $wp_filesystem && $wp_filesystem->exists( $dir ) ) {
-		$wp_filesystem->delete( $dir, true );
-	}
-	$ok = unzip_file( $tmp, $dir );
-	@unlink( $tmp ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged, WordPress.WP.AlternativeFunctions.unlink_unlink
-	if ( is_wp_error( $ok ) ) {
-		return $ok;
+	if ( ! nn_demo_bundled() ) {
+		$tmp = download_url( nn_demo_pack_url(), 120 );
+		if ( is_wp_error( $tmp ) ) {
+			/* translators: %s: error */
+			return new WP_Error( 'nn_demo', sprintf( __( 'Could not download the demo pack: %s', 'nail-niche' ), $tmp->get_error_message() ) );
+		}
+		global $wp_filesystem;
+		WP_Filesystem();
+		$dir = nn_demo_dir();
+		if ( $wp_filesystem && $wp_filesystem->exists( $dir ) ) {
+			$wp_filesystem->delete( $dir, true );
+		}
+		$ok = unzip_file( $tmp, $dir );
+		@unlink( $tmp ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged, WordPress.WP.AlternativeFunctions.unlink_unlink
+		if ( is_wp_error( $ok ) ) {
+			return $ok;
+		}
 	}
 	$data = nn_demo_data();
 	if ( is_wp_error( $data ) ) {
@@ -233,7 +244,7 @@ function nn_demo_step_download() {
 	}
 	// An import that stopped half-way carries on (nothing is added twice).
 	if ( nn_demo_record() ) {
-		return array( 'next' => 'terms', 'percent' => 8, 'message' => __( 'Demo pack downloaded. Carrying on where the last import stopped…', 'nail-niche' ) );
+		return array( 'next' => 'terms', 'percent' => 8, 'message' => __( 'Carrying on where the last import stopped…', 'nail-niche' ) );
 	}
 	// Start the record, with the settings to put back on Remove.
 	$mods = array();
@@ -264,7 +275,7 @@ function nn_demo_step_download() {
 	return array(
 		'next'    => 'terms',
 		'percent' => 8,
-		'message' => __( 'Demo pack downloaded. Adding categories…', 'nail-niche' ),
+		'message' => __( 'Adding categories…', 'nail-niche' ),
 	);
 }
 
@@ -474,11 +485,13 @@ function nn_demo_step_site() {
 	}
 	$rec['done'] = true;
 	nn_demo_save_record( $rec );
-	// Tidy up.
-	global $wp_filesystem;
-	WP_Filesystem();
-	if ( $wp_filesystem ) {
-		$wp_filesystem->delete( nn_demo_dir(), true );
+	// Tidy up a downloaded copy (never the theme's own demo/ folder).
+	if ( ! nn_demo_bundled() ) {
+		global $wp_filesystem;
+		WP_Filesystem();
+		if ( $wp_filesystem ) {
+			$wp_filesystem->delete( nn_demo_dir(), true );
+		}
 	}
 	return array(
 		'next'    => '',

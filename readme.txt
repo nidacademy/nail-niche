@@ -6,7 +6,7 @@ Author URI: https://www.nidacademy.org/
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.6.0
+Stable tag: 3.6.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-images, translation-ready
@@ -53,6 +53,9 @@ No. It works with the normal WordPress editor.
 Use an ad plugin such as Ad Inserter. For an ad in the sidebar, you can also add a Custom HTML block to a sidebar in Appearance → Widgets.
 
 == Changelog ==
+
+= 3.6.1 =
+* The demo content now ships inside the theme: Import works straight away, even without an internet connection.
 
 = 3.6.0 =
 * Demo content: one click adds about 20 posts with AI photos, 5 salon guides, pages, menus, a sidebar block and the theme settings. One click removes it and puts your earlier settings back.
